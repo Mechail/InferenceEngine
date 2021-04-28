@@ -1,6 +1,11 @@
 import java.util.Arrays;
 
 public class TT extends InferenceAlgorithm {
+    public TT()
+    {
+
+    }
+
     public void Solve()
     {
 
