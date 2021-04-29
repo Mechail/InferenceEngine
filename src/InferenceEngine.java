@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class InferenceEngine {
+class InferenceEngine {
     public static final int METHOD_COUNT = 3;
     public static InferenceAlgorithm[] lMethods;
 
@@ -28,6 +28,7 @@ public class InferenceEngine {
             BufferedReader bufferedReader = new BufferedReader(reader);
             String kbLine, queryLine;
             String[] kbSentences;
+            KB knowledgeBase = new KB();
 
             // Skip over line that says "TELL"
             bufferedReader.readLine();
@@ -40,7 +41,6 @@ public class InferenceEngine {
             for (int i = 0; i < kbSentences.length; i++)
             {
                 kbSentences[i] = kbSentences[i].stripLeading();
-                System.out.println(kbSentences[i]);
             }
 
             // Skip over line that says "ASK"
@@ -49,7 +49,9 @@ public class InferenceEngine {
             // Read the line with the query
             queryLine = bufferedReader.readLine();
 
-            System.out.println(queryLine);
+            // Parse the given knowledge base to extract individual symbols
+            knowledgeBase.parseGivenKnowledgeBase(kbSentences);
+
         }
         catch(FileNotFoundException ex)
         {

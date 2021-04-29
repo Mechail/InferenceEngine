@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class TT extends InferenceAlgorithm {
+    KB kb;
+
     public TT()
     {
 
